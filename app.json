@@ -1,0 +1,15 @@
+{
+   "expo": {
+    "name": "EZpark",
+    "icon": "./parking.png",
+    "version": "1.0.0",
+    "slug": "EZpark",
+    "sdkVersion": "26.0.0",
+    "ios": {
+      "bundleIdentifier": "com.yourcompany.yourappname"
+    },
+    "android": {
+      "package": "com.yourcompany.yourappname"
+    }
+   }
+ }
