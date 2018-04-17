@@ -26,6 +26,9 @@ coverage
 # Bower dependency directory (https://bower.io/)
 bower_components
 
+# expo
+.expo/
+
 # node-waf configuration
 .lock-wscript
 
@@ -56,4 +59,10 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
