@@ -1,6 +1,6 @@
 {
   "name": "ezParkApp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "devDependencies": {
     "react-native-scripts": "1.13.1",
@@ -23,7 +23,6 @@
     "react": "16.3.0-alpha.1",
     "react-native": "0.54.0",
     "react-native-axios": "0.17.1",
-    "react-native-map": "0.21.0",
     "react-native-maps": "^0.21.0",
     "react-navigation": "^1.5.11"
   }

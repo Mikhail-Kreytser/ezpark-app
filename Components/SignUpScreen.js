@@ -4,10 +4,14 @@ import {StackNavigator, SwitchNavigator } from 'react-navigation';
 import {URL, API, LOGIN, USER, CREATE} from '../Urls/API'
 import axios from 'react-native-axios'
 
-export default class SignUpScreen extends React.Component {
+export default class SignInScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      URL: URL,
+      loading: false,
+      message:'',
+      token:'',
       email: '',
       username: '',
       password: '',
@@ -18,20 +22,21 @@ export default class SignUpScreen extends React.Component {
         password:'',
         confirmPassword:''
       },
-      loading: false,
       usernameValid: false,
       emailValid: false,
       passwordValid: false,
       confirmPasswordValid: false,
-      formValid: false,
-      redirectToNewPage: false
+      formValid: false
     }
-
     //this.signInAsync = this.signInAsync.bind(this);
   }
   static navigationOptions = {
     title: 'Please sign up',
   };
+
+  _signUp = () => {
+    this.props.navigation.navigate('SignUp');
+  }
 
   render() {
     return (
@@ -39,6 +44,13 @@ export default class SignUpScreen extends React.Component {
         <View  style={{minWidth: '100%'}}>
           <ScrollView style={{padding: 60}}>
               
+              
+              <TextInput 
+                  style={{fontSize: 40, paddingBottom:10}} 
+                  placeholder='http://192.168.1.6:3001/' 
+                  autoCorrect={false}
+                  onChangeText={(URL) => this.setState({URL})}
+                  />
               <TextInput 
                   style={{fontSize: 40, paddingBottom:10}} 
                   placeholder='Username' 
@@ -83,8 +95,7 @@ export default class SignUpScreen extends React.Component {
 
   _signInAsync = async () => {
     this.setState({loading:true});
-
-    axios.post(`${this.state.URL}` + API + USER + LOGIN, {
+    axios.post(`${this.state.URL}` + API + USER + CREATE, {
       username: `${this.state.username}`,
       password: `${this.state.password}`,
       email:`${this.state.email}`,
@@ -98,7 +109,7 @@ export default class SignUpScreen extends React.Component {
       }
     }).catch((error) => {
       this.setState({loading:false})
-      Alert.alert('That username/email is taken');
+        Alert.alert('That username/email is taken');
     });
   };
 }

@@ -31,8 +31,9 @@ export default class Map extends React.Component {
             latitudeDelta: 0.0222,
             longitudeDelta: 0.0121,
           }}>
-          {this.state.markers.map(marker => (
+          {this.state.markers.map((marker, index) => (
             <MapView.Marker
+              key={index}
               coordinate={marker.coordinate}
               title={marker.title}
               description={marker.description}
@@ -51,15 +52,7 @@ export default class Map extends React.Component {
       //</View>
     );
   }
-  // <MapView.Marker
-  //             coordinate={{
-  //               latitude: 40.8197255,
-  //               longitude: -73.9501939,
-  //             }}
-  //             title={"marker.title"}
-  //             description={"marker.description"}
-  //           />
-
+  
   _signOutAsync = async () => {
     await AsyncStorage.clear();
     this.props.navigation.navigate('Auth');
